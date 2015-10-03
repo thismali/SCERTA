@@ -176,7 +176,7 @@ public class StatsOperations {
           
           stDeviation = Math.sqrt(variance);
 			
-          String map2Values ="#NumberofInputs\t"+n+"#Counter\t"+finalCount+"#Sum\t"+finalSum+"#MinVal\t"+finalMin+"#MaxVal\t"+finalMax+"#SumSquared\t"+finalSumSquaredVal+"#mean\t"+mean+"#variance\t"+variance+"#stDeviation\t"+stDeviation+"#InputNumbers\t"+finalElements;
+          String map2Values ="#NumberofInputs\t"+n+"#Counter\t"+finalCount+"#Sum\t"+finalSum+"#MinVal\t"+finalMin+"#MaxVal\t"+finalMax+"#Range\t"+(finalMax-finalMin)+"#SumSquared\t"+finalSumSquaredVal+"#mean\t"+mean+"#variance\t"+variance+"#stDeviation\t"+stDeviation+"#InputNumbers\t"+finalElements;
           kword.set("Map2");
 	
           context.write(kword, new Text (map2Values));
