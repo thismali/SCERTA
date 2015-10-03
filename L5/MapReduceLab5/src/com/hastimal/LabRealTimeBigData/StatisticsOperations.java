@@ -107,7 +107,7 @@ public class StatisticsOperations {
 			double var = sd*sd;
 			context.write(new Text("Variance"), new FloatWritable((float) var));
 			context.write(new Text("Standard Deviation"), new FloatWritable((float) sd));
-			
+			context.write(new Text("Range of Numbers"), new FloatWritable((max-min));
 
 		}
 	}
