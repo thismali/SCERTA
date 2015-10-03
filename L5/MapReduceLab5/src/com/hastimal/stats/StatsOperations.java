@@ -207,6 +207,7 @@ public class StatsOperations {
 			long  sum=0;
 			long  minVal=0;
 			long  maxVal=0;
+			long  rangeVal=0;
 			double  mean=0d;
 			double  stDeviation=0d;
 			double firstQuarterPercentile =0d;
@@ -241,6 +242,10 @@ public class StatsOperations {
 					subElement = element.split("\\t");
 					maxVal = Long.valueOf(subElement[1]);				
 				}
+				if(element.contains("Range")){
+					subElement = element.split("\\t");
+					rangeVal = Long.valueOf(subElement[1]);				
+				}
 				if(element.contains("mean")){
 					subElement = element.split("\\t");
 					mean = Double.valueOf(subElement[1]);				
@@ -270,7 +275,7 @@ public class StatsOperations {
 			thirdQuarterPercentile=findPercentile(listofElements,0.75);
 		
 	
-            finalResult = "\nCOUNT:\t" + counter+ "\nMEAN:\t" + mean+"\nSTANDARD DEVIATION:\t"+stDeviation+ "\nMIN:\t" + minVal+ "\nMAX:\t" + maxVal+"\n25th PERCENTILE\t"+firstQuarterPercentile+"\n50th PERCENTILE\t"+secondQuarterPercentile+"\n75th PERCENTILE\t"+thirdQuarterPercentile;
+            finalResult = "\nCOUNT:\t" + counter+ "\nMEAN:\t" + mean+"\nSTANDARD DEVIATION:\t"+stDeviation+ "\nMIN:\t" + minVal+ "\nMAX:\t" + maxVal+"\nRANGE:\t" + rangeVal+"\n25th PERCENTILE\t"+firstQuarterPercentile+"\n50th PERCENTILE\t"+secondQuarterPercentile+"\n75th PERCENTILE\t"+thirdQuarterPercentile;
     			
 			context.write(new Text("StatisticalAnalysis"+"\n"+"----------------------------------"+"\n"), new Text(finalResult));
 
