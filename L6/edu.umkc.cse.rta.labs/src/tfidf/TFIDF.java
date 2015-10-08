@@ -5,6 +5,12 @@
  * Notes: There are three stages that each consist of a mapper and reducer. Each subsequent mapper uses the output
  * of the prior reducer as an input.
  * Final result is word and document along with its TFIDF computation.
+ * 
+ * INSTRUCTION: This program expects four parameters
+ * arg1 = input directory (corpus directory)
+ * arg2 = output directory for the first job (TF)
+ * arg3 = output directory for the second job (DF)
+ * arg4 = output directory for the third job (TF*IDF)
  ****************************************************************************/
 
 package tfidf;
